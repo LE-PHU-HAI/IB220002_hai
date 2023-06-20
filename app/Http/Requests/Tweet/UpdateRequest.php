@@ -28,4 +28,9 @@ class UpdateRequest extends FormRequest
     public function tweet():string{
         return $this->input('tweets');
     }
+
+    public function id():int
+        {
+            return (int) $this ->route('tweetId');
+        }
 }
