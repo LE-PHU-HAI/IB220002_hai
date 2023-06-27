@@ -34,4 +34,8 @@ Route::get('/tweet/update/{tweetId}', '\App\Http\Controllers\Tweet\Update\IndexC
     ->name('tweet.update.index');
 Route::put('/tweet/update/{tweetId}', '\App\Http\Controllers\Tweet\Update\PutController@d')
     ->name('tweet.update.put');
-require __DIR__.'/auth.php';
+Route::delete('/tweet/delete/{tweetId}','\App\Http\Controllers\Tweet\DeleteController@e')
+    ->name('tweet.delete');
+    require __DIR__.'/auth.php';
+// Route::delete('/tweet/delete/{tweetId}', '\App\Http\Controllers\Tweet\DeleteController@e')
+//     ->name('tweet.delete');
