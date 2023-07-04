@@ -12,7 +12,7 @@ class PutController extends Controller
     //
     public function d(UpdateRequest $request){
         $tweets = Tweet::where('id', $request->id())->firstOrFail();
-        $tweets-> content = $request->tweet();
+        $tweets->content = $request->tweet();
         $tweets->save();
         return redirect()
         ->route('tweet.update.index', ['tweetId' => $tweets->id])

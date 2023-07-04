@@ -28,14 +28,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::get('/post/{id}', '\App\Http\Controllers\PostsController@index');
-Route::get('/tweet', '\App\Http\Controllers\IndexController@a')->name('tweet.index');
-Route::post('/tweet/create', '\App\Http\Controllers\Tweet\CreateController@b')->name('tweet.create');
+Route::get('/tweet', '\App\Http\Controllers\IndexController@a')
+    ->name('tweet.index');
+Route::post('/tweet/create', '\App\Http\Controllers\Tweet\CreateController@b')
+    ->middleware('auth')->name('tweet.create');
 Route::get('/tweet/update/{tweetId}', '\App\Http\Controllers\Tweet\Update\IndexController@c')
-    ->name('tweet.update.index');
+    ->name('tweet.update.index')->where('tweetId','[0,9]+');
 Route::put('/tweet/update/{tweetId}', '\App\Http\Controllers\Tweet\Update\PutController@d')
     ->name('tweet.update.put');
 Route::delete('/tweet/delete/{tweetId}','\App\Http\Controllers\Tweet\DeleteController@e')
     ->name('tweet.delete');
     require __DIR__.'/auth.php';
-// Route::delete('/tweet/delete/{tweetId}', '\App\Http\Controllers\Tweet\DeleteController@e')
-//     ->name('tweet.delete');

@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>つぶやきアプリ </h1>
+    @auth
     <div>
         <p>投稿</p>
         @if (session('feedback.success'))
@@ -25,6 +26,7 @@
 
         </form>
     </div>
+    @endauth
     <div>
         @foreach ($tweets as $tweet)
         <details>
