@@ -30,7 +30,8 @@
     <div>
         @foreach ($tweets as $tweet)
         <details>
-        <summary><p>{{$tweet->content}}</p></summary>
+        <summary><p>{{$tweet->content}} by {{$tweet->user->name}}</p></summary>
+        @if(\Illuminate\Support\Facades\Auth::id() === $tweet->user_id)
         <div>
             <a href="{{ route('tweet.update.index',['tweetId'=> $tweet->id])}}">編集</a>
             
@@ -40,6 +41,9 @@
                 <button type="submit">削除</button>
             </form>
         </div>
+        @else
+            編集できません
+        @endif
         </details>
         @endforeach
     </div>

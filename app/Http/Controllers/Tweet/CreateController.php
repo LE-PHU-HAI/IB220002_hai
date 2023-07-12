@@ -12,7 +12,7 @@ class CreateController extends Controller
     //
     public function b(CreateRequest $request){
         $tweets = new Tweet;
-        $tweets->user_id $request->userId();
+        $tweets->user_id =$request->userId();
         $tweets->content =$request->tweet();
         $tweets->save();
         return redirect()->route('tweet.index');

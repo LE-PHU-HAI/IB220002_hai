@@ -8,9 +8,9 @@ use App\Services\TweetService;
 
 class IndexController extends Controller
 {
-    public function a(Request $request,TweetService $tweetServices){
+    public function a(Request $request,TweetService $tweetService){
         $tweets = Tweet::orderBy('created_at', 'DESC')->get();
-        $tweetServices = new TweetServices();
+        $tweetServices = new TweetService();
         $tweets = $tweetServices->getTweets();
 
         return view('tweet.index')
