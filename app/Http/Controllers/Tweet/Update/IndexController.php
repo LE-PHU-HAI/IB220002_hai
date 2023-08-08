@@ -13,7 +13,7 @@ class IndexController extends Controller
 {
     public function c(Request $request, TweetService $tweetService){
         $tweetId =(int) $request->route('tweetId');
-        if (!$tweetService->checkOwnTweet($request->user()->id,$tweetId)) {
+        if (!$tweetService->checkOwnTweet($request->user()->id, $tweetId)) {
             throw new AccessDeniedHttpException();
         }
 
